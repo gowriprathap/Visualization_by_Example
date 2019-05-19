@@ -41,7 +41,7 @@ suppressPackageStartupMessages(library(tidyverse))
 iris <- as_data_frame(iris)
 ```
 
-The dataset we are working with is the iris, a R. A. Fisher’s famous dataset that catalogs measurements of the Sepal and Petal (see below) of three species of iris flowers.
+The dataset we are working with is the iris, a R. A. Fisher’s famous dataset that catalogs measurements of the Sepal and Petal of three species of iris flowers.
 
 1. How many rows and columns does this dataset have?	
    There are 4 columns and 150 rows.
@@ -51,4 +51,16 @@ The dataset we are working with is the iris, a R. A. Fisher’s famous dataset t
    The three species of iris flower in the dataset are Setosa, Versicolor,       virginica.
 4. Why does the Species column repeat the same words multiple times (put another way, what does each row represent)?
    Flowers of the species Setosa, Versicolor, and Virginica are examined for     sepal and petal measurements. Many flowers in these species are examined,     that is why the name is repeated these many times.
+   
+#Creating a histogram
+
+```{r}
+ggplot(data=iris) +
+  geom_histogram(
+    mapping = aes(x = Sepal.Length),
+    bins = 30
+  )
+```
+
+The values in the column 'Sepal.Length' from all rows is used to build the histogram. The height of each bar of the histogram gives the number of samples which have sepal length in the given range.
 
