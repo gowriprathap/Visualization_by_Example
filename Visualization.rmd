@@ -64,3 +64,26 @@ ggplot(data=iris) +
 
 The values in the column 'Sepal.Length' from all rows is used to build the histogram. The height of each bar of the histogram gives the number of samples which have sepal length in the given range.
 
+
+#Changing the bin width
+
+```{r}
+ggplot(data=iris) +
+  geom_histogram(
+    mapping = aes(x = Sepal.Length),
+    bins = 35
+  )
+```
+
+```{r}
+ggplot(data=iris) +
+  geom_histogram(
+    mapping = aes(x = Sepal.Length),
+    bins = 25
+  )
+```
+
+The first plot has more bins and shows more peaks and depressions, while the second plot shows lesser peaks. This shows that when the number of bins increases, the graph shows more detail, while when the number of bins decreases, the graph hides some detail.
+
+
+
