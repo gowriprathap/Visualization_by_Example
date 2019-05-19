@@ -1,0 +1,54 @@
+---
+title: "Visualization by example"
+author: Gowri Prathap
+documentclass: article
+geometry: margin=1in
+fontsize: 11pt
+output:
+  html_document:
+    theme: default
+    self_contained: true
+    toc: false
+    df_print: kable
+    fig_caption: false
+    number_sections: false
+    smart: true
+    dev: svg
+  pdf_document:
+    toc: false
+    df_print: kable
+    fig_caption: false
+    number_sections: false
+    dev: pdf
+    highlight: tango
+---
+
+```{r setup, include = FALSE}
+# DO NOT ALTER THIS CHUNK
+knitr::opts_chunk$set(
+  echo = TRUE,
+  eval = TRUE,
+  fig.width = 5,
+  fig.asp = 0.618,
+  out.width = "70%",
+  dpi = 120,
+  fig.align = "center",
+  cache = FALSE
+)
+# Load required packages
+suppressPackageStartupMessages(library(tidyverse))
+# Load dataset
+iris <- as_data_frame(iris)
+```
+
+The dataset we are working with is the iris, a R. A. Fisher’s famous dataset that catalogs measurements of the Sepal and Petal (see below) of three species of iris flowers.
+
+1. How many rows and columns does this dataset have?	
+   There are 4 columns and 150 rows.
+2. Are the sepal and petal measurements stored as rows or as columns?
+   The sepal and petal measurements are store as columns.
+3. What are the three kinds of species of iris flower in the dataset?
+   The three species of iris flower in the dataset are Setosa, Versicolor,       virginica.
+4. Why does the Species column repeat the same words multiple times (put another way, what does each row represent)?
+   Flowers of the species Setosa, Versicolor, and Virginica are examined for     sepal and petal measurements. Many flowers in these species are examined,     that is why the name is repeated these many times.
+
