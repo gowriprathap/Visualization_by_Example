@@ -5,6 +5,13 @@ documentclass: article
 geometry: margin=1in
 fontsize: 11pt
 output:
+  pdf_document:
+    toc: false
+    df_print: kable
+    fig_caption: false
+    number_sections: false
+    dev: pdf
+    highlight: tango
   html_document:
     theme: default
     self_contained: true
@@ -14,13 +21,6 @@ output:
     number_sections: false
     smart: true
     dev: svg
-  pdf_document:
-    toc: false
-    df_print: kable
-    fig_caption: false
-    number_sections: false
-    dev: pdf
-    highlight: tango
 ---
 
 ```{r setup, include = FALSE}
@@ -85,5 +85,46 @@ ggplot(data=iris) +
 
 The first plot has more bins and shows more peaks and depressions, while the second plot shows lesser peaks. This shows that when the number of bins increases, the graph shows more detail, while when the number of bins decreases, the graph hides some detail.
 
+#Use of fill = ""
 
+```{r}
+ggplot(data = iris) +
+  geom_histogram(
+    mapping = aes(x = Sepal.Length, fill = Species),
+    bins = 30,
+    alpha = 0.5,
+    position = "identity"
+  )
+```
 
+Adding fill = species divided the histogram into 3 separate ones (separated by colors), where there is one histogram each for each species. This changes our interpretation of our visualization, because it gives more detail about each species separately.
+
+#Use of alpha and position = ""
+
+```{r}
+ggplot(data = iris) +
+  geom_histogram(
+    mapping = aes(x = Sepal.Length, fill = Species),
+    bins = 30,
+    alpha = 0.2,
+    position = "identity"
+  )
+```
+
+Changing alpha changes how transparent the bars of the histogram. Reducing alpha makes them more transparent, and increasing it makes it opaque. Removing position = "identity" causes the bars to not overlap anymore.
+Changing "identity" to "dodge" makes the histogram to bar charts, because the bars no longer touch each other. It puts overlapping objects besides one another. 
+
+#Creating a scatterplot
+
+```{r}
+ggplot(data = iris) +
+  geom_point(
+    mapping = aes(
+      x = Sepal.Length,
+      y = Petal.Width,
+      color = Species
+    ),
+  )
+```
+
+There is a positive relationship between petal width and sepal length in case of the species. In case of virginica, this positive relationship is not as obvious as the other species. This scatterplot shows the relationship between sepal length and petal width. According to this plot, iris flowers with most sepal length have more petal width.
